@@ -26,5 +26,7 @@ coverage
 *.njsproj
 *.sln
 *.sw?
+*.zip
+*.rar
 
 *.tsbuildinfo

@@ -136,13 +136,13 @@ const onClickStart = () => {
     runtimeStore.shuffling = true;
     // 开始闪烁
     mainRef.value?.classList.add("flashing");
-    playSound("/public/sounds/bg.mp3", true)
+    playSound("/sounds/bg.mp3", true)
 }
 
 const onClickStop = (sound: boolean = true) => {
     stopSound()
     if (sound) {
-        playSound("/public/sounds/dong.wav")
+        playSound("/sounds/dong.wav")
     }
     playerCardRefs.value.forEach((cardRef, index) => {
         cardRef?.stopShuffle?.();
