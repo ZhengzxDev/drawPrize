@@ -17,7 +17,7 @@
 ```bash
 # 需要电脑先安装node.js哦！
 # 进入项目文件夹执行下列命令：
-npm install
+npm install # 👈只有首次运行需要执行这行命令
 npm run dev
 # 然后浏览器访问localhost:5173即可！
 # enjoy it！

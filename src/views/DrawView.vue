@@ -10,7 +10,7 @@
                 <el-button icon="Minus" @click="onClickScale(-1)">缩小</el-button>
             </div>
             <div class="draw__logo">
-                <!-- <img src="@/assets/imgs/logo.png" style="width:150px"> -->
+                <img src="@/assets/imgs/logo.png" style="width:150px">
             </div>
         </div>
         <div class="draw__main" ref="mainRef">
@@ -18,7 +18,7 @@
                 '--main-scale': mainScale,
                 transform: `scale(var(--main-scale))`
             }">
-                <div class="single">
+                <div class="single" v-if="settingStore.hasExtraGroup">
                     <PlayerCard :title="settingStore.extraGroupName" title-bg-color="rgb(2, 175, 5)" title-color="white"
                         :ref="el => playerCardRefs[0] = el" />
                 </div>
@@ -38,8 +38,14 @@
     <el-dialog v-model="settingVisible" title="设置" width="500" draggable>
         <el-scrollbar height="400px">
             <el-form>
-                <el-form-item label="作者">
+                <el-form-item label="made by">
                     🐻熊仔
+                </el-form-item>
+                <el-form-item label="包含独立组">
+                    <el-switch v-model="settingStore.hasExtraGroup" />
+                </el-form-item>
+                <el-form-item label="独立组名">
+                    <el-input v-model="settingStore.extraGroupName"></el-input>
                 </el-form-item>
                 <el-form-item label="组数">
                     <el-input v-model="settingStore.groupCount" type="number"></el-input>
@@ -47,9 +53,7 @@
                 <el-form-item label="组内玩家数">
                     <el-input v-model="settingStore.playerPerGroup" type="number"></el-input>
                 </el-form-item>
-                <el-form-item label="独立组名">
-                    <el-input v-model="settingStore.extraGroupName"></el-input>
-                </el-form-item>
+
                 <el-form-item label="玩家">
                     <div class="player-info" v-for="player, idx in playerStore.players">
                         <div class="player-info-item">
