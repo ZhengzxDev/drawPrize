@@ -10,7 +10,7 @@
                 <el-button icon="Minus" @click="onClickScale(-1)">缩小</el-button>
             </div>
             <div class="draw__logo">
-                <img src="@/assets/imgs/logo.png" style="width:150px">
+                <!-- <img src="@/assets/imgs/logo.png" style="width:150px"> -->
             </div>
         </div>
         <div class="draw__main" ref="mainRef">
